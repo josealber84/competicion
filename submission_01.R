@@ -163,43 +163,47 @@ cv.folds <- createFolds(y = train.objective,
                         k = n.folds,
                         list = TRUE)
 results <- data.frame(parameter = c(), mean.error = c(), mean.sd = c())
-eta.values <- c(0.01, 0.03, 0.06, 0.1)
-for(eta in eta.values){
+nrounds.values <- c(30, 50, 70)
+for(nrounds in nrounds.values){
     
-    cat("Trying models with eta = ", eta, fill = T)
-    rep.results <- data.frame(parameter = c(), mean.error = c(), mean.sd = c())
+    cat("Trying models with nrounds = ", nrounds, fill = T)
+    rep.results <- data.frame(parameter = rep(0, n.reps), 
+                              mean.error = rep(0, n.reps), 
+                              mean.sd = rep(0, nreps))
     
     for(rep in 1:n.reps){
         
         cat("Repetition ", rep, fill = T)
         fold.results <- 
-            data.frame(parameter = c(), auc = c())
+            data.frame(parameter = rep(0, length(cv.folds)), 
+                       auc = rep(0, length(cv.folds)))
         fold.count <- 0
-        browser()
         
         for(fold in cv.folds){
             
             fold.count <- fold.count + 1
             cat("Fold ", fold.count, fill = TRUE)
             train <- train.matrix[-fold, ]
-            labels <- train.objective[-fold]
+            labels.train <- train.objective[-fold]
+            labels.test <- train.objective[fold]
             test <- train.matrix[fold, ]
             model <- xgboost(data = train,
-                             label = labels,
+                             label = labels.train,
                              objective = "binary:logistic",
-                             eta = eta,
+                             eta = 0.01,
                              max.depth = 7,
                              nthread = 4,
-                             nrounds = 50,
+                             nrounds = nrounds,
                              verbose = 1,
                              print.every.n = 1,
                              early.stop.round = 10,
                              eval_metric = "auc")
             prediction <- predict(model, test)
-            expect_equal(length(prediction), length(labels))
-            roc.curve <- roc(prediction, labels)
+            expect_equal(length(prediction), length(labels.test))
+            roc.curve <- roc(prediction, as.factor(labels.test))
             auc.roc <- auc(roc.curve)
-            fold.results %<>% rbind(eta, auc.roc)
+            fold.results$parameter[fold.count] <- nrounds
+            fold.results$auc[fold.count] <- auc.roc
             cat("Results fold - auc = ", auc.roc, fill = T)
             gc()
         }
