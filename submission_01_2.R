@@ -143,6 +143,9 @@ for(col in 1:ncol(train.matrix)){
 }
 gc()
 
+
+# MODEL
+
 pb <- progress_estimated(n = 5)
 results <- list()
 for(eta in c(0.01, 0.02, 0.05, 0.1, 0.2)){
@@ -153,6 +156,8 @@ for(eta in c(0.01, 0.02, 0.05, 0.1, 0.2)){
     max.depth = 15,                                                               # max tree depth
     eval_metric = "auc"                                                          # evaluation/loss metric
   )
+  
+  set.seed(22)
   
   # cross-validate xgboost to get the accurate measure of error
   xgb_cv_1 = xgb.cv(params = xgb_params_1,
