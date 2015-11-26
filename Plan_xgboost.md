@@ -32,8 +32,8 @@ eta = 0.2, depth = 9, nround = 200, pred: config1
 0.965341+0.000813
 eta = 0.1, depth = 9, nround = 200, pred: config1
 
-0.965425+0.000814
-eta = 0.08, depth = 9, nround = 200, pred: config1
+>> 0.965425+0.000814
+>> eta = 0.08, depth = 9, nround = 200, pred: config1
 
 ???
 eta = 0.06, depth = 9, nround = 200, pred: config1
