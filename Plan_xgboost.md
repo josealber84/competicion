@@ -29,21 +29,12 @@ eta = 0.5, depth = ?, nround = 200, pred: config1
 ???
 eta = 0.1, depth = ?, nround = 200, pred: config1
 
-???
+0.960880+0.001151
 eta = 0.02, depth = 9, nround = 200, pred: config1
 
-???
+0.958547+0.001230
 eta = 0.02, depth = 7, nround = 200, pred: config1
 
-0.962424+0.001257
+0.954671+0.001327
 eta = 0.02, depth = 5, nround = 200, pred: config1
-
-0.961861+0.001497
-eta = 0.02, depth = 4, nround = 200, pred: config1
-
-0.960971+0.001642
-eta = 0.02, depth = 3, nround = 200, pred: config1
-
-0.959789+0.001169 
-eta = 0.02, depth = 2, nround = 200, pred: config1
 
