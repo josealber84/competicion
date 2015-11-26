@@ -20,11 +20,11 @@ config1: todas las features no-constantes, con fecha separada por año, mes, dí
 0.9619 >> **eta = 0.01 eliminada** 
 eta = 0.01, depth = 15, nrounds = 300, pred : config1
 
-???
-eta = 1, depth = ?, nround = 200, pred: config1
+0.958155+0.001192  ¡En 5 iteraciones!
+eta = 1, depth = 9, nround = 200, pred: config1
 
-???
-eta = 0.5, depth = ?, nround = 200, pred: config1
+0.961778+0.001039  ¡En 16 iteraciones!
+eta = 0.5, depth = 9, nround = 200, pred: config1
 
 0.965341+0.000813
 eta = 0.1, depth = 9, nround = 200, pred: config1
