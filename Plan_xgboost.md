@@ -26,7 +26,7 @@ eta = 1, depth = 9, nround = 200, pred: config1
 0.961778+0.001039  ¡En 16 iteraciones!
 eta = 0.5, depth = 9, nround = 200, pred: config1
 
-???
+0.964157+0.000872  ¡En 57 iteraciones!
 eta = 0.2, depth = 9, nround = 200, pred: config1
 
 0.965341+0.000813
