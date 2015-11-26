@@ -17,7 +17,7 @@ Prueba a eliminar las features menos significativas o a cambiar el formato de al
 ### Pruebas
 config1: todas las features no-constantes, con fecha separada por año, mes, día y día de la semana.
  
-0.9619 >> **eta = 0.01 eliminada**
+0.9619 >> **eta = 0.01 eliminada** 
 eta = 0.01, depth = 15, nrounds = 300, pred : config1
 
 ???
