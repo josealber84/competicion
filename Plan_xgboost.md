@@ -51,7 +51,8 @@ http://www.slideshare.net/ShangxuanZhang/kaggle-winning-solution-xgboost-algorit
 
 
 ### Pruebas
-config1: todas las features no-constantes, con fecha separada por año, mes, día y día de la semana.
+
+*config1*: todas las features no-constantes, con fecha separada por año, mes, día y día de la semana. Todas las features escaladas y centradas.
  
 0.9619 >> **eta = 0.01 eliminada**   
 eta = 0.01, depth = 15, nrounds = 300, pred : config1  
