@@ -87,8 +87,11 @@ eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.68 + s
 0.965519+0.000874  
 eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.68
 
-> 0.965500+0.000824  
-> eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.5  
+> 0.965546+0.000852 [205 iteraciones!]   
+> eta = 0.08, depth = 9, nround = 205, pred: config1 + colsample_bytree = 0.68
+
+0.965500+0.000824  
+eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.5  
 
 0.965419+0.000869  
 eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.4  
