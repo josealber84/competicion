@@ -146,34 +146,28 @@ gc()
 
 # MODEL
 
-pb <- progress_estimated(n = 5)
-results <- list()
-for(eta in c(0.01, 0.02, 0.05, 0.1, 0.2)){
   
-  xgb_params_1 = list(
-    objective = "binary:logistic",                                               # binary classification
-    eta = eta,                                                                  # learning rate
-    max.depth = 15,                                                               # max tree depth
-    eval_metric = "auc"                                                          # evaluation/loss metric
-  )
-  
-  set.seed(22)
-  
-  # cross-validate xgboost to get the accurate measure of error
-  xgb_cv_1 = xgb.cv(params = xgb_params_1,
-                    data = train.matrix,
-                    label = train.objective,
-                    nrounds = 300, 
-                    nfold = 10,                                                  # return the prediction using the final model 
-                    showsd = TRUE,                                               # standard deviation of loss across folds
-                    stratified = TRUE,                                           # sample is unbalanced; use stratified sampling
-                    verbose = TRUE,
-                    print.every.n = 1, 
-                    early.stop.round = 10
-  )
-  
-  pb$tick()$print
-  results <- c(results, list(xgb_cv_1))
-}
+xgb_params_1 = list(
+  objective = "binary:logistic",                                               # binary classification
+  eta = eta,                                                                  # learning rate
+  max.depth = 15,                                                               # max tree depth
+  eval_metric = "auc"                                                        # evaluation/loss metric
+)
+
+set.seed(22)
+
+# cross-validate xgboost to get the accurate measure of error
+xgb_cv_1 = xgb.cv(params = xgb_params_1,
+                  data = train.matrix,
+                  label = train.objective,
+                  nrounds = 300, 
+                  nfold = 10,                                                  # return the prediction using the final model 
+                  showsd = TRUE,                                               # standard deviation of loss across folds
+                  stratified = TRUE,                                           # sample is unbalanced; use stratified sampling
+                  verbose = TRUE,
+                  print.every.n = 1, 
+                  early.stop.round = 10
+)
+
 
 save(results, file = "results.Rdata")
