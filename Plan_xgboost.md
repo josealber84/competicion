@@ -2,17 +2,52 @@
 
 ### Parámetros a optimizar
 
-**Eta** factor de regularización.  
+**Eta** Factor de regularización/learning rate
 1 = sin regularización 
 0 = regularización infinita
+Ajustar usando cross validation.
 
-**Depth** número de árboles.
-Rangos razonables: de 2 a 15
+**Number of Rounds** Número de árboles
+Ajustar usando cross validation. Empieza con unos 100 árboles.
 
-**Rounds** ???
+**Depth** Profundidad de los árboles.
+Rangos razonables: de 2 a 15. Empieza con un valor de 6.
+
+**Min child weight** ???
+Empieza con 1/sqrt(event rate)
+
+**colsample_bytree** ???
+De 0.3 a 0.5
+
+**subsampling** ???
+Déjalo a 1.0
+
+**gamma** ???
+Normalmente está bien dejarlo a 0
+
+---
 
 **Predictors** features a considerar.
 Prueba a eliminar las features menos significativas o a cambiar el formato de algunas, o aplica PCA
+
+
+### Consejos
+
+**Ejecuta varias veces el modelo con distintas semillas y haz la media de los resultados**
+
+Si el modelo es muy simple (undefitting):
+- Aumenta eta (menos regularización)
+- Aumenta depth (más parámetros)
+- Disminuye min_child_weight (???)
+
+Si el modelo es muy complejo (overfitting):
+- Disminuye eta (más regularización)
+- Disminuye depth (menos parámetros)
+- Aumenta min_child_weight (???)
+
+http://www.slideshare.net/odsc/owen-zhangopen-sourcetoolsanddscompetitions1
+http://www.slideshare.net/ShangxuanZhang/kaggle-winning-solution-xgboost-algorithm-let-us-learn-from-its-author
+
 
 ### Pruebas
 config1: todas las features no-constantes, con fecha separada por año, mes, día y día de la semana.
