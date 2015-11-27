@@ -103,7 +103,8 @@ for(col in 1:ncol(train.matrix)){
     removed.predictors <- c(removed.predictors, col)
   }
 }
-cat("Removed predictors: ", removed.predictors, fill = T)
+cat("\nRemoved predictors: ", 
+    paste(removed.predictors, collapse = ","), fill = T)
 if(length(removed.predictors) > 0){
   train.matrix <- train.matrix[, -removed.predictors]
   test.matrix <- test.matrix[, -removed.predictors]
@@ -149,9 +150,10 @@ gc()
   
 xgb_params_1 = list(
   objective = "binary:logistic",                                               # binary classification
-  eta = eta,                                                                  # learning rate
-  max.depth = 15,                                                               # max tree depth
-  eval_metric = "auc"                                                        # evaluation/loss metric
+  eta = 0.08,                                                                  # learning rate
+  max.depth = 9,                                                               # max tree depth
+  eval_metric = "auc",
+  colsample_bytree = 0.68
 )
 
 set.seed(22)
@@ -160,7 +162,7 @@ set.seed(22)
 xgb_cv_1 = xgb.cv(params = xgb_params_1,
                   data = train.matrix,
                   label = train.objective,
-                  nrounds = 300, 
+                  nrounds = 200, 
                   nfold = 10,                                                  # return the prediction using the final model 
                   showsd = TRUE,                                               # standard deviation of loss across folds
                   stratified = TRUE,                                           # sample is unbalanced; use stratified sampling
@@ -169,5 +171,3 @@ xgb_cv_1 = xgb.cv(params = xgb_params_1,
                   early.stop.round = 10
 )
 
-
-save(results, file = "results.Rdata")
