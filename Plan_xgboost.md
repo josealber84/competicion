@@ -5,7 +5,7 @@
 **Eta** Factor de regularización/learning rate  
 1 = sin regularización   
 0 = regularización infinita  
-Ajustar usando cross validation.
+Ajustar usando cross validation. Empieza con 0.1
 
 **Number of Rounds** Número de árboles  
 Ajustar usando cross validation. Empieza con unos 100 árboles.  
