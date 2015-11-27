@@ -56,9 +56,6 @@ http://www.slideshare.net/ShangxuanZhang/kaggle-winning-solution-xgboost-algorit
 
 *config2*: todas las features no-constantes, con fecha separada por año, mes, día y día de la semana. Tengo en cuenta missing values (-1 en este dataset).
 
- 
-0.9619 >> **eta = 0.01 eliminada**   
-eta = 0.01, depth = 15, nrounds = 300, pred : config1  
 
 0.958155+0.001192  ¡En 5 iteraciones!  
 eta = 1, depth = 9, nround = 200, pred: config1  
@@ -78,8 +75,17 @@ eta = 0.09, depth = 9, nround = 200, pred: config1
 0.965425+0.000814  
 eta = 0.08, depth = 9, nround = 200, pred: config1  
 
-???  
+0.965386+0.000869
 eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.5 + min_child_weight = 0.5  
+
+0.965400+0.000971
+eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.5 + min_child_weight = 0.8
+
+0.965465+0.000735    
+eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.68 + subsample = 0.86
+
+???    
+eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.68
 
 > 0.965500+0.000824  
 > eta = 0.08, depth = 9, nround = 200, pred: config1 + colsample_bytree = 0.5  
@@ -92,6 +98,9 @@ eta = 0.06, depth = 9, nround = 200, pred: config1
 
 0.960880+0.001151  
 eta = 0.02, depth = 9, nround = 200, pred: config1  
+
+0.958903+0.001161  
+eta = 0.02, depth = 7, nround = 200, pred: config1 + colsample_bytree = 0.68 + subsample = 0.86
 
 0.958547+0.001230  
 eta = 0.02, depth = 7, nround = 200, pred: config1  
